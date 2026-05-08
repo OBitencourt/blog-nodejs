@@ -5,9 +5,9 @@ const { proteger } = require("../middleware/auth");
 const validar = require("../middleware/validar");
 const router = express.Router({ mergeParams: true });
 
-router.get("/", ctrl.listar);
+router.get("/:artigoId/comentarios", ctrl.listar);
 router.post(
-  "/",
+  "/:artigoId/comentarios",
   proteger,
   [body("conteudo").notEmpty().withMessage("Conteúdo obrigatório")],
   validar,
